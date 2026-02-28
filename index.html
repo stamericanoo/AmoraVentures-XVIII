@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMORA VENTURES | Official 12 A Industrial Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #fdfdfd;
+            --panel: #ffffff;
+            --text: #0f172a;
+            --dim: #64748b;
+            --maroon: #800000;
+            --maroon-light: #ff3333;
+            --gold: #b8860b;
+            --border: #e2e8f0;
+        }
+
+        * { scroll-behavior: smooth; box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+
+        /* SIDE NAVIGATION DOTS */
+        .side-nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 2000; display: flex; flex-direction: column; gap: 10px; background: rgba(255,255,255,0.9); padding: 15px 10px; border-radius: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .dot { width: 10px; height: 10px; background: #cbd5e1; border-radius: 50%; transition: 0.3s; }
+        .dot.active { background: var(--maroon); transform: scale(1.6); box-shadow: 0 0 10px rgba(128, 0, 0, 0.3); }
+
+        /* HERO SECTION */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1541976590-713941681591?q=80&w=2070&auto=format&fit=crop'); background-size: cover; text-align: center; border-bottom: 8px solid var(--maroon); }
+        .hero h1 { font-family: 'Montserrat'; font-size: 5.5rem; font-weight: 900; margin: 0; letter-spacing: -3px; color: var(--text); line-height: 0.9; }
+        .hero h1 span { color: var(--maroon); }
+        .hero p { font-size: 1.1rem; letter-spacing: 12px; text-transform: uppercase; color: var(--gold); margin-top: 20px; font-weight: 700; }
+
+        /* TOP STICKY DASHBOARD */
+        .top-dash { position: sticky; top: 0; z-index: 1000; background: white; display: grid; grid-template-columns: repeat(4, 1fr); padding: 15px 10%; border-bottom: 2px solid var(--maroon); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .dash-item h4 { font-size: 0.65rem; color: var(--dim); margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .dash-item .val { font-size: 1.5rem; font-weight: 900; color: var(--maroon); }
+
+        /* CONTENT SYSTEM */
+        section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
+        .section-header h2 { font-family: 'Montserrat'; font-size: 2.8rem; font-weight: 900; text-transform: uppercase; margin: 0; }
+        .section-header div { width: 60px; height: 5px; background: var(--maroon); margin-top: 10px; }
+
+        .card { background: var(--panel); padding: 35px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 30px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 25px; }
+
+        /* AZZAM-STYLE EFFICIENCY SELECTOR */
+        .selector-panel { background: #f8fafc; border: 2px solid var(--maroon); padding: 40px; border-radius: 20px; margin: 40px 0; }
+        .tier-btn { padding: 12px 24px; border-radius: 6px; border: none; cursor: pointer; font-weight: 800; margin: 5px; transition: 0.2s; font-size: 0.85rem; }
+        .btn-basic { background: #94a3b8; color: white; }
+        .btn-std { background: #059669; color: white; }
+        .btn-premium { background: #7c3aed; color: white; }
+        .tier-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        /* TECHNICAL TABLES */
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.85rem; }
+        th { text-align: left; padding: 12px; background: #f1f5f9; border-bottom: 2px solid var(--maroon); color: var(--gold); text-transform: uppercase; }
+        td { padding: 12px; border-bottom: 1px solid #f8fafc; color: var(--text); }
+
+        /* CODE/FORMULA BLOCKS */
+        .formula { font-family: 'JetBrains Mono'; background: #1e293b; color: #4ade80; padding: 20px; border-radius: 8px; margin: 15px 0; font-size: 0.9rem; border-left: 4px solid var(--maroon-light); }
+
+        footer { background: #fff; padding: 60px 10%; border-top: 8px solid var(--maroon); text-align: center; }
+        .footer-meta { display: flex; justify-content: space-between; border-top: 1px solid #eee; margin-top: 40px; padding-top: 20px; font-size: 0.85rem; color: var(--dim); }
+
+    </style>
+</head>
+<body>
+
+    <nav class="side-nav">
+        <a href="#hero" class="dot active"></a>
+        <a href="#summary" class="dot"></a>
+        <a href="#mass" class="dot"></a>
+        <a href="#energy" class="dot"></a>
+        <a href="#selector" class="dot"></a>
+        <a href="#kinetics" class="dot"></a>
+        <a href="#equipment" class="dot"></a>
+        <a href="#utility" class="dot"></a>
+        <a href="#finance" class="dot"></a>
+        <a href="#safety" class="dot"></a>
+        <a href="#amdal" class="dot"></a>
+    </nav>
+
+    <div class="top-dash">
+        <div class="dash-item"><h4>Target Production</h4><div class="val">1,000 <small>MTPD</small></div></div>
+        <div class="dash-item"><h4>Plant Yield</h4><div class="val" id="yield-display">95.0%</div></div>
+        <div class="dash-item"><h4>Assigned Team</h4><div class="val" style="font-size:1.2rem">GROUP 12 A</div></div>
+        <div class="dash-item"><h4>Est. ROI</h4><div class="val" id="roi-display">24.5%</div></div>
+    </div>
+
+    <section class="hero" id="hero">
+        <div style="background:var(--maroon); color:white; padding:5px 15px; font-weight:900; border-radius:4px; margin-bottom:20px;">PROJECT PHASE: FINAL SUBMISSION</div>
+        <h1>AMORA<br><span>VENTURES</span></h1>
+        <p>Advanced Industrial Acid Design</p>
+    </section>
+
+    <section id="summary">
+        <div class="section-header"><h2>01. Executive <span>Summary</span></h2><div></div></div>
+        <div class="card">
+            <p style="font-size:1.15rem; color:var(--dim);">Developed by <b>Aisha, Keysha, and Jovita of Class 12 A</b>, this technical proposal details a 1,000 MTPD Sulfuric Acid plant using DCDA (Double Contact Double Absorption) technology. Our design focuses on <b>Energy Recovery</b> and <b>Zero-Waste</b> principles.</p>
+        </div>
+    </section>
+
+    <section id="mass">
+        <div class="section-header"><h2>02. Mass <span>Balance</span></h2><div></div></div>
+        <div class="card">
+            <table>
+                <thead><tr><th>Component</th><th>In (kg/hr)</th><th>Out (kg/hr)</th><th>Conversion</th></tr></thead>
+                <tbody>
+                    <tr><td>Molten Sulfur</td><td>7,541.67</td><td>0.00</td><td>100.0%</td></tr>
+                    <tr><td>Process Air ($O_2/N_2$)</td><td>62,450.00</td><td>55,200.00</td><td>Excess $O_2$</td></tr>
+                    <tr><td>Dilution Water</td><td>4,120.00</td><td>0.00</td><td>Hydration</td></tr>
+                    <tr style="font-weight:bold; color:var(--maroon)"><td>Product ($H_2SO_4$ 98%)</td><td>0.00</td><td>41,666.67</td><td>Final Output</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="energy">
+        <div class="section-header"><h2>03. Energy <span>Balance</span></h2><div></div></div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Thermal Output</h3>
+                <div class="formula">$\Delta H_{combustion} = -296.8$ kJ/mol</div>
+                <p>Plant utilizes exothermic reaction heat to generate <b>15 tons/hr</b> of high-pressure steam.</p>
+            </div>
+            <div class="card">
+                <h3>Cooling Demand</h3>
+                <p>Cooling Water: <b>1,200 $m^3/hr$</b></p>
+                <p>Heat Exchangers: <b>12 Units</b></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="selector">
+        <div class="section-header"><h2>04. Efficiency <span>Configuration</span></h2><div></div></div>
+        <div class="selector-panel">
+            <h3>Dynamic Equipment Control</h3>
+            <p>Select a tier to simulate plant performance and financial impact:</p>
+            <div style="margin: 20px 0;">
+                <button class="tier-btn btn-basic" onclick="updateConfig('basic')">Basic Configuration</button>
+                <button class="tier-btn btn-std" onclick="updateConfig('std')">12 A Professional</button>
+                <button class="tier-btn btn-premium" onclick="updateConfig('premium')">Premium Optimal</button>
+            </div>
+            <div class="grid-2">
+                <div style="padding:15px; background:white; border-radius:8px;">
+                    <b>Unit F-101 (Burner):</b> <span id="f-stat">95% Eff</span>
+                </div>
+                <div style="padding:15px; background:white; border-radius:8px;">
+                    <b>Unit R-201 (Converter):</b> <span id="r-stat">98% Eff</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kinetics">
+        <div class="section-header"><h2>05. Reaction <span>Kinetics</span></h2><div></div></div>
+        <div class="card">
+            <div class="formula">Reaction: $2SO_2 + O_2 \rightleftharpoons 2SO_3$ | $\Delta H = -197$ kJ/mol</div>
+            <p>Our 12 A model uses <b>Vanadium Pentoxide ($V_2O_5$)</b> catalyst in a 4-pass adiabatic converter to shift equilibrium towards maximum $SO_3$ yield.</p>
+        </div>
+    </section>
+
+    <section id="equipment">
+        <div class="section-header"><h2>06. Equipment <span>Specs</span></h2><div></div></div>
+        <div class="card">
+            <table>
+                <thead><tr><th>Unit ID</th><th>Equipment Name</th><th>Material</th><th>Operating Temp</th></tr></thead>
+                <tbody>
+                    <tr><td>M-101</td><td>Sulfur Melter</td><td>Carbon Steel (Brick-Lined)</td><td>145°C</td></tr>
+                    <tr><td>F-101</td><td>Sulfur Burner</td><td>Refractory-Lined Steel</td><td>1050°C</td></tr>
+                    <tr><td>R-201</td><td>4-Stage Converter</td><td>SS-304L</td><td>420-610°C</td></tr>
+                    <tr><td>T-301</td><td>Final Absorber</td><td>Acid-Brick Lined</td><td>80°C</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="utility">
+        <div class="section-header"><h2>07. Utility <span>Consumption</span></h2><div></div></div>
+        <div class="grid-2">
+            <div class="card"><canvas id="utilChart" height="200"></canvas></div>
+            <div class="card">
+                <h3>Power & Water</h3>
+                <p>Electrical Load: <b>1.8 MW</b></p>
+                <p>Instrument Air: <b>250 $Nm^3/hr$</b></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="finance">
+        <div class="section-header"><h2>08. Financial <span>Projections</span></h2><div></div></div>
+        <div class="card">
+            <canvas id="profitChart" height="100"></canvas>
+            <div class="grid-2">
+                <div style="text-align:center"><h3>ROI</h3><p id="card-roi">24.5%</p></div>
+                <div style="text-align:center"><h3>BEP</h3><p>Year 5.2</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="safety">
+        <div class="section-header"><h2>09. <span>SHE</span> & Safety</h2><div></div></div>
+        <div class="card" style="border-left:8px solid var(--maroon)">
+            <h3>Safety Instrumented System (SIS)</h3>
+            <p>Equipped with Level 3 SIL sensors. Emergency Shut Down (ESD) logic implemented for high-pressure excursions in the converter.</p>
+        </div>
+    </section>
+
+    <section id="amdal">
+        <div class="section-header"><h2>10. <span>Environmental</span> Plan</h2><div></div></div>
+        <div class="card">
+            <p>Effluent gas $SO_2$ concentration: <b>< 180 ppm</b>. Waste heat utilized for zero-carbon steam generation. No liquid effluent discharge (Zero Liquid Discharge system).</p>
+        </div>
+    </section>
+
+    <footer>
+        <h2 style="font-family:'Montserrat'; letter-spacing:3px;">AMORA VENTURES</h2>
+        <p>Official Project by Aisha • Keysha • Jovita</p>
+        <div class="footer-meta">
+            <div>Class: <b>12 A - Industrial Technology</b></div>
+            <div>Submission Date: <b>Feb 28, 2026</b></div>
+            <div>Version: <b>7.0 - Titan Build</b></div>
+        </div>
+        <div style="margin-top:30px; font-size:0.7rem; color:#ccc;">&copy; 2026 12 A Academy. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+        // NAVIGATION DOTS
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const dots = document.querySelectorAll('.dot');
+            let current = "";
+            sections.forEach(s => { if(pageYOffset >= s.offsetTop - 300) current = s.getAttribute('id'); });
+            dots.forEach(d => { d.classList.remove('active'); if(d.getAttribute('href').includes(current)) d.classList.add('active'); });
+        });
+
+        // EFFICIENCY LOGIC
+        const configData = {
+            basic: { yield: 89.2, roi: 18.1, f: "88%", r: "90%" },
+            std: { yield: 95.0, roi: 24.5, f: "95%", r: "98%" },
+            premium: { yield: 99.4, roi: 31.2, f: "99%", r: "99.8%" }
+        };
+
+        function updateConfig(tier) {
+            const data = configData[tier];
+            document.getElementById('yield-display').innerText = data.yield + '%';
+            document.getElementById('roi-display').innerText = data.roi + '%';
+            document.getElementById('card-roi').innerText = data.roi + '%';
+            document.getElementById('f-stat').innerText = data.f + ' Eff';
+            document.getElementById('r-stat').innerText = data.r + ' Eff';
+        }
+
+        // CHARTS
+        new Chart(document.getElementById('utilChart'), {
+            type: 'doughnut',
+            data: { labels: ['Cooling Water', 'Power', 'Labor'], datasets: [{ data: [65, 20, 15], backgroundColor: ['#800000', '#b8860b', '#1e293b'] }] },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+
+        new Chart(document.getElementById('profitChart'), {
+            type: 'line',
+            data: { labels: ['Year 0', 'Year 2', 'Year 4', 'Year 6', 'Year 8', 'Year 10'], datasets: [{ label: 'Profit (Billion IDR)', data: [-1200, -800, -200, 500, 1200, 1900], borderColor: '#800000', fill: false }] },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+    </script>
+</body>
+</html>
